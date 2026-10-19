@@ -1,4 +1,4 @@
-# AuRoRus: our RoboRacer race stack, open-sourced and written in Rust
+# AuRoRus: our RoboRacer stack, open-sourced and written in Rust
 
 What if I told you that the following is just a few terminal commands away from you?
 
@@ -60,6 +60,8 @@ AuRoRus drives the real car through these drivers:
 - **Gamepad:** tested with wireless dongle gamepads
 
 The onboard computer just needs to run Linux. Every driver can be tested on its own with the `probe` tool, and `car_calibration` guides you through calibrating a new car. If your car uses different hardware, a new driver is just another node.
+
+![The AuRoRus stack driving on a real world track](./assets/aurorus_in_the%20real_world.gif)
 
 ## Is AuRoRus for beginners?
 
