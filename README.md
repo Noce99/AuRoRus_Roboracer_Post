@@ -44,13 +44,13 @@ We started thinking about porting our ROS 2 repo to Rust two years ago, but we h
 
 ## The team behind it
 
-AuRoRus is ported from the work of the whole UniBo driverless team. [@SamueleCrimi](https://github.com/SamueleCrimi) and [@Scheggetta](https://github.com/Scheggetta) wrote the first implementations of the Frenet overtaking, the algorithm that won Atlanta, and of the Path Follower. [@AlbYoda](https://github.com/AlbYoda) built the opponent detector and is now working on a faster, Acados-based MPC. [@FelixFrog](https://github.com/FelixFrog) built the map switch that let us drive the bridge track in Vienna, and is now working on a new MPPI controller. [@Noce99](https://github.com/Noce99) (me) leads the team and ported everything to Rust. Many thanks also to [@TorioCrema](https://github.com/TorioCrema), [@FedericoCalzoni](https://github.com/FedericoCalzoni), [@beatricebottari](https://github.com/beatricebottari), [@LucaTedeschini](https://github.com/LucaTedeschini), [@ncridlig](https://github.com/ncridlig) and [@StefanoColamonaco](https://github.com/StefanoColamonaco), and to [@gerkone](https://github.com/gerkone), who founded the team.
+AuRoRus is ported from the work of the whole UniBo driverless team. [@SamueleCrimi](https://github.com/SamueleCrimi) and [@Scheggetta](https://github.com/Scheggetta) wrote the first implementations of the Frenet overtaking, the algorithm that won Atlanta, and of the Path Follower. [@AlbYoda](https://github.com/AlbYoda) built the opponent detector and is now working on a faster, Acados-based MPC. [@FelixFrog](https://github.com/FelixFrog) built the map switch that let us drive the bridge track in Vienna, and is now working on a new MPPI controller. [@Noce99](https://github.com/Noce99) (me) leads the team, wrote the MPC (Acados-free) and the race-line planning, worked on making the whole stack fast to fine-tune during a race, and ported everything to Rust. Many thanks also to [@TorioCrema](https://github.com/TorioCrema), [@FedericoCalzoni](https://github.com/FedericoCalzoni), [@beatricebottari](https://github.com/beatricebottari), [@LucaTedeschini](https://github.com/LucaTedeschini), [@ncridlig](https://github.com/ncridlig) and [@StefanoColamonaco](https://github.com/StefanoColamonaco), and to [@gerkone](https://github.com/gerkone), who founded the team.
 
-**[IMAGE PLACEHOLDER: team photo, Atlanta ICRA 2025]**
+![The UniBo team with the trophy, the winner's cheque and the car at ICRA 2025 in Atlanta](./assets/team_atlanta_2025.jpg)
 
 *Atlanta, ICRA 2025: first place in the RoboRacer competition.*
 
-**[IMAGE PLACEHOLDER: team photo, Vienna ICRA 2026]**
+![The UniBo team holding the car at ICRA 2026 in Vienna](./assets/team_vienna_2026.jpg)
 
 *Vienna, ICRA 2026: second and third place in the Master Cup.*
 
@@ -83,15 +83,25 @@ AuRoRus ships with the maps of the tracks we actually raced on, so you can train
 
 The Vienna final track crossed over itself on a bridge, so it comes as two maps of the same area, one per level.
 
-**[IMAGE PLACEHOLDER: Atlanta 2025 track]**
+![The map of the ICRA 2025 Atlanta track](./assets/atlanta_2025_track.png)
 
-**[IMAGE PLACEHOLDER: Vienna 2026 final track, ground and bridge levels]**
+*The ICRA 2025 Atlanta track.*
+
+![The two maps of the ICRA 2026 Vienna final track: the ground level on the left, the bridge level on the right](./assets/vienna_2026_final_track_ground_and_bridge.png)
+
+*The ICRA 2026 Vienna final track: the ground level (left) and the bridge level (right).*
+
+![Our car jumping off the bridge of the ICRA 2026 Vienna final track](./assets/vienna_2026_bridge_jump.gif)
+
+*Our car jumping on the bridge of the Vienna final track.*
 
 ### Tutorials: from an empty file to a driving car
 
 The repo includes [step-by-step tutorials](https://github.com/Noce99/AuRoRus/tree/master/tutorials) that write an autonomous driving algorithm from an empty file: first a gap follower, which drives using only the LiDAR, then a pure pursuit, which follows a race line. They explain the theory, the code and how the algorithm talks to the rest of the stack, and no Rust experience is assumed. A new algorithm is just a new file in `src/autonomous_control/`: the same `cargo build --release` finds it, and it shows up in the GUI with its parameters tunable live.
 
-**[IMAGE PLACEHOLDER: the tutorial gap follower driving in the GUI]**
+![The web GUI driving the pure pursuit in simulation, with its parameters as sliders in the Autonomous Algorithms panel](./assets/gui_pure_pursuit_live_tuning.jpg)
+
+*The pure pursuit, the algorithm of the second tutorial, driving in simulation with its parameters tuned live from the GUI.*
 
 ## Supported hardware
 
