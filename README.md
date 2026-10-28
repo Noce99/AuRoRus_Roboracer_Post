@@ -44,7 +44,7 @@ We started thinking about porting our ROS 2 repo to Rust two years ago, but we h
 
 ## The team behind it
 
-AuRoRus is ported from the work of the whole UniBo driverless team. [@SamueleCrimi](https://github.com/SamueleCrimi) and [@Scheggetta](https://github.com/Scheggetta) wrote the first implementations of the Frenet overtaking, the algorithm that won Atlanta, and of the Path Follower. [@AlbYoda](https://github.com/AlbYoda) built the opponent detector and is now working on a faster, Acados-based MPC. [@FelixFrog](https://github.com/FelixFrog) built the map switch that let us drive the bridge track in Vienna, and is now working on a new MPPI controller. [@Noce99](https://github.com/Noce99) (me) leads the team, wrote the MPC (Acados-free) and the race-line planning, worked on making the whole stack fast to fine-tune during a race, and ported everything to Rust. Many thanks also to [@TorioCrema](https://github.com/TorioCrema), [@FedericoCalzoni](https://github.com/FedericoCalzoni), [@beatricebottari](https://github.com/beatricebottari), [@LucaTedeschini](https://github.com/LucaTedeschini), [@ncridlig](https://github.com/ncridlig) and [@StefanoColamonaco](https://github.com/StefanoColamonaco), and to [@gerkone](https://github.com/gerkone), who founded the team.
+AuRoRus is ported from the work of the whole UniBo driverless team. [Samuele Crimi](https://github.com/SamueleCrimi) and [Edoardo Fusa](https://github.com/Scheggetta) wrote the first implementations of the Frenet overtaking, the algorithm that won Atlanta, and of the Path Follower. [Alberto De Nardis](https://github.com/AlbYoda) built the opponent detector and is now working on a faster, Acados-based MPC. [Francesco Ognibene](https://github.com/FelixFrog) built the map switch that let us drive the bridge track in Vienna, and is now working on a new MPPI controller. [Enrico Mannocci](https://github.com/Noce99) (me) leads the team, wrote the MPC (Acados-free) and the race-line planning, worked on making the whole stack fast to fine-tune during a race, and ported everything to Rust. Many thanks also to [Simone Zama](https://github.com/TorioCrema), [Federico Calzoni](https://github.com/FedericoCalzoni), [Beatrice Bottari](https://github.com/beatricebottari), [Luca Tedeschini](https://github.com/LucaTedeschini), [Nicolas Ivan Cridlig](https://github.com/ncridlig) and [Stefano Colamonaco](https://github.com/StefanoColamonaco), and to [Gianluca Galletti](https://github.com/gerkone), who founded the team.
 
 ![The UniBo team with the trophy, the winner's cheque and the car at ICRA 2025 in Atlanta](./assets/team_atlanta_2025.jpg)
 
@@ -91,7 +91,7 @@ The Vienna final track crossed over itself on a bridge, so it comes as two maps 
 
 *The ICRA 2026 Vienna final track: the ground level (left) and the bridge level (right).*
 
-![Our car jumping off the bridge of the ICRA 2026 Vienna final track](./assets/vienna_2026_bridge_jump.gif)
+![Our car jumping on the bridge of the ICRA 2026 Vienna final track](./assets/vienna_2026_bridge_jump.gif)
 
 *Our car jumping on the bridge of the Vienna final track.*
 
@@ -107,12 +107,12 @@ The repo includes [step-by-step tutorials](https://github.com/Noce99/AuRoRus/tre
 
 AuRoRus drives the real car through these drivers:
 - **Motor controller:** VESC 6 MkV over USB serial, which also provides the IMU
-- **LiDAR:** Hokuyo UTM-30LX-EW, or any Hokuyo speaking SCIP 2.0 over Ethernet
+- **LiDAR:** Hokuyo UTM-30LX-EW, Hokuyo UST-10LX or any Hokuyo speaking SCIP 2.0 over Ethernet
 - **Gamepad:** tested with wireless dongle gamepads
 
 The onboard computer just needs to run Linux. Every driver can be tested on its own with the `probe` tool, and `car_calibration` guides you through calibrating a new car. If your car uses different hardware, a new driver is just another node.
 
-![The AuRoRus stack driving on a real world track](./assets/aurorus_in_the%20real_world.gif)
+![The AuRoRus stack driving on a real world track](./assets/aurorus_in_the_real_world.gif)
 
 ## Is AuRoRus for beginners?
 
